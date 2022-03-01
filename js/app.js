@@ -13,23 +13,28 @@ const displayPhones = (phones) => {
   const phoneContainer = document.getElementById("phone-container");
   //   display phones clear
   phoneContainer.textContent = "";
-  phones.forEach((phone) => {
-    console.log(phone);
-    const div = document.createElement("div");
-    div.classList.add("col-12", "col-md-6", "col-lg-4");
-    div.innerHTML = `
+  // search input validation
+  if (phones == 0) {
+    document.getElementById("error-message").style.display = "block";
+  } else {
+    phones.forEach((phone) => {
+      document.getElementById("error-message").style.display = "none";
+      const div = document.createElement("div");
+      div.classList.add("col-12", "col-md-6", "col-lg-4");
+      div.innerHTML = `
         <div class="card rounded">
             <div class="p-4">
-                <img width="100%" src="${phone.image}" class="card-img-top" alt="" />
+              <img width="100%" src="${phone.image}" class="card-img-top" alt="" />
             </div>
             <div class="card-body">
-                <h5 class="card-title">${phone.brand} ${phone.phone_name}</h5>
-                <button onclick="phoneDetails('${phone.slug}')" class="btn btn-primary">Learn more</button>
+              <h5 class="card-title">${phone.brand} ${phone.phone_name}</h5>
+              <button onclick="phoneDetails('${phone.slug}')" class="btn btn-primary">Learn more</button>
             </div>
         </div>
-    `;
-    phoneContainer.appendChild(div);
-  });
+      `;
+      phoneContainer.appendChild(div);
+    });
+  }
 };
 // phone info
 const phoneDetails = (phoneId) => {
@@ -50,13 +55,67 @@ const showPhoneInfo = (showInfo) => {
     <div class="p-4 text-center">
         <img src="${showInfo.image}" class="card-img-top " alt="..." />
     </div>
-    <p class="fw-bold">Brand: ${showInfo.brand}</p>
-    <p class="fw-bold">Display Size: ${showInfo.mainFeatures.displaySize}</p>
-    <p class="fw-bold">Memory: ${showInfo.mainFeatures.memory}</p>
-    <p class="fw-bold">Brand: ${
-      showInfo.releaseDate ? showInfo.releaseDate : "No Relesed Date Found!"
-    }</p>
-    
+    <div>
+      <p class="fw-bold">Release Date:- ${
+        showInfo?.releaseDate ? showInfo.releaseDate : "No Relesed Date Found!"
+      }</p>
+      <hr/>
+      <p class="fw-bold">Main Features:-</p>
+      <p class="fw-bold">Chip Set: ${
+        showInfo?.mainFeatures?.chipSet
+          ? showInfo.mainFeatures.chipSet
+          : "No Relesed Date Found!"
+      }</p>
+      <p class="fw-bold">Display Size: ${
+        showInfo?.mainFeatures?.displaySize
+          ? showInfo.mainFeatures.displaySize
+          : "No Relesed Date Found!"
+      }</p>
+      <p class="fw-bold">Memory: ${
+        showInfo?.mainFeatures?.memory
+          ? showInfo.mainFeatures.memory
+          : "No Relesed Date Found!"
+      }</p>
+      <p class="fw-bold">Sensors: ${
+        showInfo?.mainFeatures?.sensors
+          ? showInfo.mainFeatures.sensors
+          : "No Relesed Date Found!"
+      }</p>
+      <p class="fw-bold">Storage: ${
+        showInfo?.mainFeatures?.storage
+          ? showInfo.mainFeatures.storage
+          : "No Relesed Date Found!"
+      }</p>
+      <p class="fw-bold">Sensors: ${
+        showInfo?.mainFeatures?.sensors
+          ? showInfo.mainFeatures.sensors
+          : "No Relesed Date Found!"
+      }</p>
+      <hr/>
+      <p class="fw-bold">Others:-</p>
+      <p class="fw-bold">Bluetooth: ${
+        showInfo?.others?.Bluetooth
+          ? showInfo.others?.Bluetooth
+          : "No Relesed Date Found!"
+      }</p>
+      <p class="fw-bold">GPS: ${
+        showInfo?.others?.GPS ? showInfo.others.GPS : "No Relesed Date Found!"
+      }</p>
+      <p class="fw-bold">NFC: ${
+        showInfo?.others?.NFC ? showInfo.others.NFC : "No Relesed Date Found!"
+      }</p>
+      <p class="fw-bold">Radio: ${
+        showInfo?.others?.Radio
+          ? showInfo.others.Radio
+          : "No Relesed Date Found!"
+      }</p>
+      <p class="fw-bold">USB: ${
+        showInfo?.others?.USB ? showInfo.others.USB : "No Relesed Date Found!"
+      }</p>
+      <p class="fw-bold">WLAN: ${
+        showInfo?.others?.WLAN ? showInfo.others.WLAN : "No Relesed Date Found!"
+      }</p>
+    </div>
   `;
   loadInfo.appendChild(div);
 };
