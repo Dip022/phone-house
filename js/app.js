@@ -27,3 +27,10 @@ const displayPhones = (phones) => {
     phoneContainer.appendChild(div);
   });
 };
+// phone info
+const phoneDetails = (phoneId) => {
+  const phoneInfo = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
+  fetch(phoneInfo)
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+};
