@@ -17,3 +17,8 @@
     width: 100% !important;
   }
 }
+@media (max-width: 425px) {
+  .phone-info {
+    overflow-x: auto;
+  }
+}

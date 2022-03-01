@@ -64,7 +64,8 @@ const showPhoneInfo = (showInfo) => {
     <div class="p-4 text-center">
         <img src="${showInfo.image}" class="card-img-top " alt="..." />
     </div>
-    <div>
+    <div class="phone-info">
+    <p class="fw-bold">Name:-  ${showInfo.brand} ${showInfo.name}</p>
       <p class="fw-bold">Release Date:- ${
         showInfo?.releaseDate ? showInfo.releaseDate : "No Relesed Date Found!"
       }</p>
