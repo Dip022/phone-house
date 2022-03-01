@@ -11,14 +11,22 @@ const loadPhones = () => {
 // display phones
 const displayPhones = (phones) => {
   const phoneContainer = document.getElementById("phone-container");
+  // product cound
+  const productCound = phones.length;
+  // Total product list
+  document.getElementById(
+    "productList"
+  ).innerText = `Total product list:- ${productCound}`;
   //   display phones clear
   phoneContainer.textContent = "";
   // search input validation
   if (phones == 0) {
+    document.getElementById("productList").style.display = "none";
     document.getElementById("error-message").style.display = "block";
   } else {
     phones.forEach((phone) => {
       document.getElementById("error-message").style.display = "none";
+      document.getElementById("productList").style.display = "block";
       const div = document.createElement("div");
       div.classList.add("col-12", "col-md-6", "col-lg-4");
       div.innerHTML = `

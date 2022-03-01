@@ -2,16 +2,16 @@
 #error-message {
   display: none;
 }
+/* show phone info */
 .show-info {
   width: 100%;
   border: 1px solid #dfdfdf;
   padding: 20px;
 }
-
 .show-info img {
   width: 250px;
 }
-
+/* responsive */
 @media (max-width: 768px) {
   .w-search {
     width: 100% !important;
