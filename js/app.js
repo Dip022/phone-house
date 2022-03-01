@@ -36,6 +36,7 @@ const displayPhones = (phones) => {
             </div>
             <div class="card-body">
               <h5 class="card-title">${phone.brand} ${phone.phone_name}</h5>
+              <p>Brand:- ${phone.brand}</p>
               <button onclick="phoneDetails('${phone.slug}')" class="btn btn-primary">Learn more</button>
             </div>
         </div>
@@ -55,7 +56,7 @@ const phoneDetails = (phoneId) => {
 // show phone info
 const showPhoneInfo = (showInfo) => {
   const loadInfo = document.getElementById("showPhoneInfo");
-  //   phone info clear
+  //   phones info clear
   loadInfo.textContent = "";
   const div = document.createElement("div");
   div.classList.add("show-info");
